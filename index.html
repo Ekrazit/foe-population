@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Forge of Empires: Target population calculator</title>
+
+    <!-- Bootstrap core CSS -->
+<!--    <link href="css/bootstrap.min.css" rel="stylesheet">-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+
+        <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
+
+            <svg width="40" height="32" class="me-2" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                 style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path d="M14.609,0.879L5.098,5.397L0.798,16.986C0.798,16.986 2.346,24.098 4.66,26.497C6.974,28.896 10.984,31.015 14.682,31.38C19.535,31.86 29.908,30.409 33.777,29.376C35.67,28.871 37.895,25.185 37.895,25.185L38.843,17.605L38.77,11.265L33.121,5.142L26.38,1.134L14.609,0.879Z"
+          style="stroke:black;stroke-width:1px;"/>
+                <g transform="matrix(0.421593,0,0,0.41321,2.30517,16.7861)">
+        <text x="9.161px" y="12.14px"
+              style="font-family:'BernardMT-Condensed', 'Bernard MT Condensed', serif;font-stretch:condensed;font-size:50px;fill:white;">FoE</text>
+    </g>
+                <g transform="matrix(0.534428,0,0,0.317998,2.88892,18.8626)">
+        <text x="7.649px" y="24.857px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.537px;fill:white;">Calculator</text>
+    </g>
+</svg>
+
+            <span class="fs-4">Forge of Empires: Target population calculator</span>
+        </a>
+    </header>
+
+
+    <h1>Target population calculator</h1>
+    <p class="fs-5 col-md-8">Helps you find the right combination of houses and production building to meet the expected population count.</p>
+
+    <div class="row g-5">
+        <div class="col-md-4">
+            <label for="age" class="form-label">Maximum Age: </label>
+            <select class="form-select" id="age" required="">
+                <option value="">Choose...</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid technological age.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="ActualPopulation" class="form-label">Current Population:</label>
+            <input type="text" class="form-control" id="ActualPopulation" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid actual population is required.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="TargetPopulation" class="form-label">Target Population:</label>
+            <input type="text" class="form-control" id="TargetPopulation" placeholder="" required="">
+            <div class="invalid-feedback">
+                Valid target population is required.
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <a href="#" class="btn btn-primary btn-lg px-4">Calculate</a>
+        </div>
+
+    </div>
+    <hr class="col-3 col-md-2 mb-5">
+
+    <div class="alert alert-danger fade position-absolute top-0 start-50 translate-middle-x" role="alert" id="alert-danger">
+        Alert
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="row g-2" id="results">
+    </div>
+
+    <footer class="pt-5 my-5 text-muted border-top">
+        Created by the Ekrazit &middot; &copy; 2021
+    </footer>
+</div>
+<!--<script src="js/bootstrap.bundle.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script src="js/dat.js"></script>
+<script src="js/population.js"></script>
+
+
+</body>
+</html>
