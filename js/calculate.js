@@ -8,12 +8,7 @@ function go(message) {
     ciel = message.data.ciel;
     var allovedAges = message.data.allovedAges;
     var data = message.data.data;
-
-    console.log("calculate - go " + ciel);
-    console.log(data);
-
     var result = calculation(allovedAges,data,ciel) ;
-
     self.postMessage({
         "result": result,
     });

@@ -37,7 +37,6 @@ ages.forEach(age => {
 
 
 function createResults(resultslice) {
-    console.log('createResults')
     let resultelement = document.querySelector('#results');
     resultelement.innerHTML = '';
     if (resultslice.length == 0) {
@@ -111,7 +110,6 @@ function createResults(resultslice) {
 }
 
 function drawprogressbar() {
-    console.log('draw progress bar begin')
     let resultelement = document.querySelector('#results');
     resultelement.innerHTML = '<div class="progress col-md-8"><div class="progress-bar progress-bar-striped bg-danger" id="progressbar" role="progressbar" style="width: 1%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>';
     let button = document.querySelector('#calculatebutton');
@@ -119,9 +117,16 @@ function drawprogressbar() {
 
 }
 
+function drawLimit() {
+    let resultelement = document.querySelector('#results');
+    resultelement.innerHTML = '';
+    var resulttext = document.createElement("h2");
+    resulttext.innerText = 'Difference must be less the 5000';
+    resultelement.appendChild(resulttext);
+}
+
 
 let calculate = () => {
-    console.log('calculate begin')
     var failValidation = false;
     let d = document.querySelector('.form-select')
     if (d.value == '') {
@@ -149,9 +154,13 @@ let calculate = () => {
         return;
     }
     ciel = d2.value - d1.value;
-    console.log(ciel);
 
     if (ciel == 0) {
+        return;
+    }
+
+    if (ciel > 5000){
+        drawLimit()
         return;
     }
 
@@ -172,9 +181,7 @@ let calculate = () => {
     });
     worker.addEventListener("message", (message) =>{
 
-
         if (message.data.progress !== undefined){
-            console.log(message.data.progress);
             let progressbar = document.querySelector('#progressbar');
             progressbar.style.width = message.data.progress + '%'
         }
@@ -184,7 +191,6 @@ let calculate = () => {
             createResults(message.data.result)
         }
     }, false);
-    console.log('calculate end')
 }
 
 document.querySelector('#calculatebutton').addEventListener('click', calculate)
